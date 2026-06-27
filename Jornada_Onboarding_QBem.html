@@ -445,6 +445,201 @@ footer.credits svg{width:16px;height:auto;flex-shrink:0;}
 .churn-sub-btn[aria-pressed="true"][data-sub="churn1"]{border-color:var(--lime);background:var(--lime);color:var(--petroleo);}
 .churn-sub-btn[aria-pressed="true"][data-sub="churn2"]{border-color:var(--teal);background:var(--badge-teal);color:#fff;}
 .churn-sub-panel[hidden]{display:none !important;}
+
+/* ════════════════════ DADOS UG ════════════════════ */
+.ug-panel {
+  --positive:    #00BF5A; --positive-dim:  rgba(0,191,90,.10);  --positive-border: rgba(0,191,90,.25);
+  --negative:    #D4302F; --negative-dim:  rgba(212,48,47,.10); --negative-border: rgba(212,48,47,.25);
+  --warning:     #E6B032; --warning-dim:   rgba(230,176,50,.10);--warning-border:  rgba(230,176,50,.25);
+  --neutral:     #1E9CA8; --neutral-dim:   rgba(30,156,168,.10);--neutral-border:  rgba(30,156,168,.25);
+  --blue:        #174353; --blue-dim:      rgba(23,67,83,.10);
+  --border:      var(--line); --border-strong: rgba(23,67,83,.18);
+  --text:        var(--text-strong); --text-muted: var(--muted); --text-dim: #8FAEB5;
+  --surface2:    var(--surface-alt); --surface3: rgba(23,67,83,.06);
+  --mono:        'JetBrains Mono','Fira Code',monospace;
+  --radius:      12px; --radius-sm: 8px;
+  padding: 0; min-height: 100vh;
+  font-family: "Line Seed JP","Helvetica Neue",Arial,sans-serif;
+  font-size: 14px; line-height: 1.5; color: var(--text-strong);
+  background: var(--surface-alt);
+}
+.ug-panel-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 28px 40px 0; border-bottom: 1px solid var(--line);
+  background: var(--surface); gap: 16px;
+}
+.ug-panel-eyebrow {
+  font-family: "Line Seed JP ExtraBold",sans-serif; font-weight:800;
+  font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--teal); display:block; margin-bottom:4px;
+}
+.ug-panel-title {
+  font-family: "Line Seed JP ExtraBold",sans-serif; font-weight:800;
+  font-size:20px; letter-spacing:-.02em; color: var(--text-strong); margin:0 0 4px;
+}
+.ug-panel-subtitle { font-size:12px; color: var(--muted); margin:0 0 20px; }
+.ug-panel-badge {
+  flex-shrink:0; font-family:var(--mono); font-size:11px; color:var(--muted);
+  background:var(--surface-alt); border:1px solid var(--line);
+  padding:5px 10px; border-radius:var(--radius-sm); margin-top:4px;
+}
+.ug-nav {
+  display: flex; align-items: center; gap: 2px; padding: 0 40px;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+  overflow-x: auto; flex-shrink:0;
+}
+.ug-nav-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 12px 16px; border:none; background:none; cursor:pointer;
+  font-family:"Line Seed JP",sans-serif; font-weight:700; font-size:13px;
+  color: var(--muted); white-space:nowrap;
+  border-bottom: 2px solid transparent; margin-bottom:-1px;
+  transition: color .15s, border-color .15s;
+}
+.ug-nav-btn:hover { color: var(--text-strong); }
+.ug-nav-active { color: var(--petroleo) !important; border-bottom-color: var(--teal) !important; }
+.ug-nav-count {
+  font-size:10px; font-weight:700; padding:2px 5px; border-radius:10px;
+  background:var(--surface-alt); color:var(--muted);
+}
+.ug-count-warn  { background: rgba(230,176,50,.15); color:#C99030; }
+.ug-count-alert { background: rgba(212,48,47,.15);  color:#D4302F; }
+.ug-content { padding: 32px 40px; }
+.ug-section { display:none; animation: fadeInUg .2s ease; }
+.ug-section.ug-visible { display:block; }
+@keyframes fadeInUg { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+.ug-hero-icon {
+  font-size:28px; width:56px; height:56px; background:rgba(23,67,83,.08);
+  border-radius:14px; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); color:var(--petroleo); flex-shrink:0;
+}
+.ug-hero-icon .material-symbols-rounded { font-variation-settings:'FILL' 0,'wght' 400; }
+.page-hero {
+  display:flex; align-items:center; gap:16px; margin-bottom:28px;
+  padding-bottom:20px; border-bottom:1px solid var(--line);
+}
+.page-hero-text h2 { font-size:20px; font-weight:800; letter-spacing:-.025em; color:var(--text-strong); font-family:"Line Seed JP ExtraBold",sans-serif; margin:0 0 2px; }
+.page-hero-text p  { font-size:12px; color:var(--muted); margin:0; }
+.ug-panel .kpi-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(176px,1fr));
+  gap:14px; margin-bottom:24px;
+}
+.ug-panel .kpi-card {
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px; position:relative; overflow:hidden;
+}
+.ug-panel .kpi-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+.ug-panel .kpi-card.positive::before { background:var(--positive); }
+.ug-panel .kpi-card.negative::before { background:var(--negative); }
+.ug-panel .kpi-card.warning::before  { background:var(--warning); }
+.ug-panel .kpi-card.neutral::before  { background:var(--neutral); }
+.ug-panel .kpi-card.blue::before     { background:var(--blue); }
+.ug-panel .kpi-label {
+  font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:8px; font-family:"Line Seed JP ExtraBold",sans-serif;
+}
+.ug-panel .kpi-value {
+  font-size:26px; font-weight:800; letter-spacing:-.04em; line-height:1;
+  margin-bottom:5px; font-family:"Line Seed JP ExtraBold",sans-serif;
+  color: var(--text-strong);
+}
+.ug-panel .kpi-value.positive { color:var(--positive); }
+.ug-panel .kpi-value.negative { color:var(--negative); }
+.ug-panel .kpi-value.warning  { color:var(--warning); }
+.ug-panel .kpi-value.neutral  { color:var(--neutral); }
+.ug-panel .kpi-value.blue     { color:var(--blue); }
+.ug-panel .kpi-sub { font-size:11px; color:var(--text-dim); }
+.ug-panel .chart-row {
+  display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;
+}
+.ug-panel .chart-row.triple { grid-template-columns:2fr 1fr 1fr; }
+.ug-panel .chart-row.single { grid-template-columns:1fr; }
+.ug-panel .chart-card {
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px;
+}
+.ug-panel .chart-title {
+  font-size:13px; font-weight:700; color:var(--text-strong);
+  margin-bottom:3px; font-family:"Line Seed JP ExtraBold",sans-serif;
+}
+.ug-panel .chart-subtitle { font-size:11px; color:var(--muted); margin-bottom:14px; }
+.ug-panel .bar-chart { display:flex; flex-direction:column; gap:10px; }
+.ug-panel .bar-item  { display:flex; flex-direction:column; gap:4px; }
+.ug-panel .bar-header{ display:flex; justify-content:space-between; align-items:center; }
+.ug-panel .bar-label { font-size:11px; color:var(--muted); font-weight:500; }
+.ug-panel .bar-value { font-size:11px; font-family:var(--mono); font-weight:700; color:var(--text-strong); }
+.ug-panel .bar-track { background:var(--surface-alt); border-radius:4px; height:7px; overflow:hidden; }
+.ug-panel .bar-fill  { height:100%; border-radius:4px; transition:width .8s cubic-bezier(.4,0,.2,1); }
+.ug-panel .canvas-wrapper { position:relative; }
+.ug-panel canvas { width:100%; display:block; }
+.ug-panel .data-table { width:100%; border-collapse:collapse; }
+.ug-panel .data-table th {
+  font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-dim); padding:8px 10px; text-align:left;
+  border-bottom:1px solid var(--line); font-family:"Line Seed JP ExtraBold",sans-serif;
+}
+.ug-panel .data-table td {
+  padding:9px 10px; font-size:12px; color:var(--muted);
+  border-bottom:1px solid var(--line); vertical-align:middle;
+}
+.ug-panel .data-table tr:last-child td { border-bottom:none; }
+.ug-panel .data-table tr:hover td { background:var(--surface-alt); }
+.ug-panel .data-table td.mono { font-family:var(--mono); font-size:12px; color:var(--text-strong); }
+.ug-panel .badge {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:10px; font-weight:700; padding:2px 7px;
+  border-radius:20px; letter-spacing:.04em; text-transform:uppercase;
+  font-family:"Line Seed JP ExtraBold",sans-serif;
+}
+.ug-panel .badge.active   { background:var(--positive-dim); color:var(--positive); border:1px solid var(--positive-border); }
+.ug-panel .badge.inactive { background:var(--surface-alt); color:var(--text-dim); border:1px solid var(--line); }
+.ug-panel .badge.critical { background:var(--negative-dim); color:var(--negative); border:1px solid var(--negative-border); }
+.ug-panel .badge.warning  { background:var(--warning-dim);  color:var(--warning);  border:1px solid var(--warning-border); }
+.ug-panel .badge.good     { background:var(--positive-dim); color:var(--positive); border:1px solid var(--positive-border); }
+.ug-panel .insights-grid {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:18px;
+}
+.ug-panel .insight-card {
+  border-radius:var(--radius); padding:18px; border:1px solid;
+}
+.ug-panel .insight-card.critical   { background:var(--negative-dim); border-color:var(--negative-border); }
+.ug-panel .insight-card.attention  { background:var(--warning-dim);  border-color:var(--warning-border); }
+.ug-panel .insight-card.opportunity{ background:var(--positive-dim); border-color:var(--positive-border); }
+.ug-panel .insight-eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  margin-bottom:10px; display:flex; align-items:center; gap:6px;
+  font-family:"Line Seed JP ExtraBold",sans-serif;
+}
+.ug-panel .insight-card.critical   .insight-eyebrow { color:var(--negative); }
+.ug-panel .insight-card.attention  .insight-eyebrow { color:var(--warning); }
+.ug-panel .insight-card.opportunity .insight-eyebrow { color:var(--positive); }
+.ug-panel .insight-item {
+  display:flex; gap:10px; margin-bottom:10px; padding-bottom:10px;
+  border-bottom:1px solid rgba(23,67,83,.08);
+}
+.ug-panel .insight-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.ug-panel .insight-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+.ug-panel .insight-text strong { display:block; font-size:12px; font-weight:700; color:var(--text-strong); margin-bottom:2px; }
+.ug-panel .insight-text span   { font-size:11px; color:var(--muted); line-height:1.45; }
+.ug-panel .missing-grid  { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.ug-panel .missing-card  { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
+.ug-panel .missing-item  { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); }
+.ug-panel .missing-item:last-child { border-bottom:none; }
+.ug-panel .missing-dot   { width:6px; height:6px; border-radius:50%; background:var(--warning); margin-top:6px; flex-shrink:0; }
+.ug-panel .missing-text strong { font-size:12px; font-weight:700; color:var(--text-strong); display:block; margin-bottom:2px; }
+.ug-panel .missing-text span   { font-size:11px; color:var(--muted); }
+.ug-panel .donut-wrapper { display:flex; align-items:center; gap:18px; }
+.ug-panel .donut-svg { flex-shrink:0; }
+.ug-panel .legend-item { display:flex; align-items:center; gap:8px; margin-bottom:9px; }
+.ug-panel .legend-dot  { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.ug-panel .legend-text { font-size:11px; color:var(--muted); }
+.ug-panel .legend-val  { font-family:var(--mono); font-weight:700; color:var(--text-strong); font-size:13px; }
+.ug-panel .divider { border:none; border-top:1px solid var(--line); margin:20px 0; }
+.ug-panel .section-period {
+  font-size:11px; color:var(--text-dim); background:var(--surface-alt);
+  border:1px solid var(--line); padding:5px 10px; border-radius:var(--radius-sm);
+  font-family:var(--mono);
+}
 </style>
 </head>
 <body>
@@ -464,6 +659,7 @@ footer.credits svg{width:16px;height:auto;flex-shrink:0;}
                 <li role="option" data-view="churn" tabindex="0" aria-selected="false">Churn</li>
                 <li role="option" data-view="personas" tabindex="0" aria-selected="false">Personas</li>
                 <li role="option" data-view="oportunidades" tabindex="0" aria-selected="false">Oportunidades</li>
+                <li role="option" data-view="dados-ug" tabindex="0" aria-selected="false">Dados UG</li>
             </ul>
         </div>
         <div class="rail-section">
@@ -6052,6 +6248,917 @@ Implicação para a marca: ainda que QBem venda B2B, o app do beneficiário é o
       Layout idêntico ao da Jornada de Onboarding, adaptado ao Design System QBem. Conteúdo em vermelho = trava/gargalo identificado.</span>
     </footer>
   </div>
+  <div class="view-panel" data-view="dados-ug" tabindex="0" aria-label="UserGuiding Analytics — EB · Jan–Jun 2026" hidden>
+  <div class="ug-panel">
+    <div class="ug-panel-header">
+      <div class="ug-panel-heading">
+        <span class="ug-panel-eyebrow">UserGuiding · Sistema EB</span>
+        <h2 class="ug-panel-title">Analytics Dashboard</h2>
+        <p class="ug-panel-subtitle">Engajamento consolidado de todos os módulos · Jan–Jun 2026</p>
+      </div>
+      <span class="ug-panel-badge">Gerado Jun / 2026</span>
+    </div>
+    <nav class="ug-nav" aria-label="Seções do dashboard UserGuiding">
+      <button class="ug-nav-btn ug-nav-active" data-ug-target="ug-overview" onclick="ugNavigate('ug-overview',this)">Overview</button>
+      <button class="ug-nav-btn" data-ug-target="ug-banners" onclick="ugNavigate('ug-banners',this)">Banners<span class="ug-nav-count ug-count-warn">15</span></button>
+      <button class="ug-nav-btn" data-ug-target="ug-guides" onclick="ugNavigate('ug-guides',this)">Guias</button>
+      <button class="ug-nav-btn" data-ug-target="ug-surveys" onclick="ugNavigate('ug-surveys',this)">Surveys</button>
+      <button class="ug-nav-btn" data-ug-target="ug-knowledge" onclick="ugNavigate('ug-knowledge',this)">Knowledge Base</button>
+      <button class="ug-nav-btn" data-ug-target="ug-updates" onclick="ugNavigate('ug-updates',this)">Product Updates</button>
+      <button class="ug-nav-btn" data-ug-target="ug-insights" onclick="ugNavigate('ug-insights',this)">Insights<span class="ug-nav-count ug-count-alert">!</span></button>
+      <button class="ug-nav-btn" data-ug-target="ug-gaps" onclick="ugNavigate('ug-gaps',this)">Gaps de Dados</button>
+    </nav>
+    <div class="ug-content">
+<!-- ==================== OVERVIEW ==================== -->
+  <section id="ug-overview" class="ug-section ug-visible">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">analytics</span></div>
+      <div class="page-hero-text">
+        <h2>Overview Geral</h2>
+        <p>Performance consolidada de todos os módulos UserGuiding no EB · Jan–Jun 2026</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-label">Total Impressões</div>
+        <div class="kpi-value blue">109,6k</div>
+        <div class="kpi-sub">Banners exibidos</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">CTR Banners</div>
+        <div class="kpi-value positive">12,6%</div>
+        <div class="kpi-sub">13.796 cliques</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Guides Views</div>
+        <div class="kpi-value warning">72,6k</div>
+        <div class="kpi-sub">5.307 completions</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Taxa Completion</div>
+        <div class="kpi-value negative">4,98%</div>
+        <div class="kpi-sub">Crítico — mediana 0%</div>
+      </div>
+      <div class="kpi-card neutral">
+        <div class="kpi-label">Survey Interações</div>
+        <div class="kpi-value neutral">8.165</div>
+        <div class="kpi-sub">2 surveys ativos</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Knowledge Base</div>
+        <div class="kpi-value warning">629</div>
+        <div class="kpi-sub">Avg 3,5 views/dia</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Product Updates</div>
+        <div class="kpi-value negative">373</div>
+        <div class="kpi-sub">116 dias com zero views</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Banners Ativos</div>
+        <div class="kpi-value warning">5</div>
+        <div class="kpi-sub">1 ativo com CTR 0%</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">📈 Volume Total por Módulo</div>
+        <div class="chart-subtitle">Engajamento acumulado Jan–Jun 2026</div>
+        <div class="bar-chart" id="ug-overview-bars"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">🗓️ Ativação ao Longo do Período</div>
+        <div class="chart-subtitle">O sistema entrou em uso real apenas em Fev/2026</div>
+        <canvas id="ug-overview-timeline" height="200"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">🔴 Alertas Rápidos</div>
+        <div class="chart-subtitle">Itens que requerem ação imediata</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <div class="insight-item">
+            <div class="insight-icon">🔴</div>
+            <div class="insight-text">
+              <strong>"Retirada do sininho" — Banner ATIVO com 13.683 exibições e 0 interações</strong>
+              <span>O banner mais visto do período tem CTR 0%. Está ocupando espaço e treinando usuários a ignorar.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">🔴</div>
+            <div class="insight-text">
+              <strong>Guides: 158 dias (89%) com taxa de completion = 0%</strong>
+              <span>Pico de 72.601 views mas só 5.307 completions. Algo está quebrando o fluxo sistematicamente.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">🟡</div>
+            <div class="insight-text">
+              <strong>KB vs Product Updates: abaixo de 4 views/dia em média</strong>
+              <span>Conteúdo publicado mas quase invisível para os usuários.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">🔵</div>
+            <div class="insight-text">
+              <strong>Survey "Avalie o EB" — apenas 127 interações vs 8.037 do rival</strong>
+              <span>63× menos engajamento. Os usuários têm algo a dizer — o canal não está alcançando-os.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">📊 Distribuição de Engajamento</div>
+        <div class="chart-subtitle">Proporção de cada módulo no total de interações</div>
+        <div class="donut-wrapper" style="margin-top:16px;">
+          <svg class="donut-svg" width="130" height="130" viewBox="0 0 130 130" id="ug-donut-overview">
+            <circle cx="65" cy="65" r="52" fill="none" stroke="var(--surface2)" stroke-width="18"/>
+          </svg>
+          <div class="donut-legend" id="ug-donut-legend"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BANNERS ==================== -->
+  <section id="ug-banners" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">campaign</span></div>
+      <div class="page-hero-text">
+        <h2>Banners</h2>
+        <p>15 banners configurados · CTR geral 12,6% · 109.611 impressões</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-label">Total Exibições</div>
+        <div class="kpi-value blue">109.611</div>
+        <div class="kpi-sub">Período completo</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">Total Cliques</div>
+        <div class="kpi-value positive">13.796</div>
+        <div class="kpi-sub">CTR: 12,59%</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">Melhor CTR</div>
+        <div class="kpi-value positive">30,7%</div>
+        <div class="kpi-sub">Manual e atualização</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Banners CTR 0%</div>
+        <div class="kpi-value negative">4</div>
+        <div class="kpi-sub">30.521 impressões desperdiçadas</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card" style="grid-column: span 2;">
+        <div class="chart-title">📢 CTR por Banner — Ranking Completo</div>
+        <div class="chart-subtitle">Ordenado por taxa de interação · Verde = bom · Vermelho = crítico</div>
+        <div style="margin-top:12px;" id="ug-banner-ranking"></div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">📅 Evolução Mensal — Impressões</div>
+        <div class="chart-subtitle">Volume de exibições por mês</div>
+        <canvas id="ug-banner-seen-chart" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">🖱️ Evolução Mensal — CTR</div>
+        <div class="chart-subtitle">Taxa de clique por mês (%)</div>
+        <canvas id="ug-banner-ctr-chart" height="180"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">✅ Positivos — Alta Performance</div>
+        <div class="chart-subtitle">CTR acima de 15%</div>
+        <table class="data-table">
+          <thead><tr><th>Banner</th><th>Exibições</th><th>Interações</th><th>CTR</th></tr></thead>
+          <tbody id="ug-banners-positive"></tbody>
+        </table>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">❌ Negativos — CTR Zero ou Muito Baixo</div>
+        <div class="chart-subtitle">CTR abaixo de 2%</div>
+        <table class="data-table">
+          <thead><tr><th>Banner</th><th>Status</th><th>Exibições</th><th>CTR</th></tr></thead>
+          <tbody id="ug-banners-negative"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="chart-row single">
+      <div class="chart-card">
+        <div class="chart-title">🟡 Banners RPA vs Outros</div>
+        <div class="chart-subtitle">A maioria dos banners trata de alertas de RPA — isso é um sinal estrutural</div>
+        <div class="kpi-grid" style="margin-top:12px;margin-bottom:0;">
+          <div class="kpi-card warning">
+            <div class="kpi-label">Banners RPA (9)</div>
+            <div class="kpi-value warning">62.602</div>
+            <div class="kpi-sub">impressões · 9.820 interações · CTR 15,7%</div>
+          </div>
+          <div class="kpi-card neutral">
+            <div class="kpi-label">Outros Banners (6)</div>
+            <div class="kpi-value neutral">46.989</div>
+            <div class="kpi-sub">impressões · 3.976 interações · CTR 8,5%</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;line-height:1.6;">
+          ⚠️ <strong style="color:var(--warning);">Ponto de Atenção:</strong> 60% dos banners são alertas reativos de instabilidade de RPA. 
+          O UserGuiding está sendo usado como canal de <em>gestão de crise técnica</em>, não de onboarding ou educação de produto. 
+          Isso indica ausência de um canal alternativo de comunicação de incidentes no EB.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GUIDES ==================== -->
+  <section id="ug-guides" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">map</span></div>
+      <div class="page-hero-text">
+        <h2>Guias de Uso</h2>
+        <p>72.601 visualizações · 5.307 completions · Taxa média 4,98%</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-label">Total Views</div>
+        <div class="kpi-value blue">72.601</div>
+        <div class="kpi-sub">Jan–Jun 2026</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Completion Rate</div>
+        <div class="kpi-value negative">4,98%</div>
+        <div class="kpi-sub">Muito abaixo do benchmark (25–40%)</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Dias com 0% Rate</div>
+        <div class="kpi-value negative">158</div>
+        <div class="kpi-sub">de 178 dias (89%)</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">Pico de Views</div>
+        <div class="kpi-value positive">6.469</div>
+        <div class="kpi-sub">22 Jun 2026</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">Melhor Completion</div>
+        <div class="kpi-value positive">100%</div>
+        <div class="kpi-sub">5 dias (Mar/2026)</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Trend Jun/26</div>
+        <div class="kpi-value warning">+144%</div>
+        <div class="kpi-sub">Views vs Maio (42.495 vs 17.417)</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">📈 Views vs Completions por Mês</div>
+        <div class="chart-subtitle">O crescimento de views não veio acompanhado de completions</div>
+        <canvas id="ug-guides-monthly" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">📉 Taxa de Completion Mensal</div>
+        <div class="chart-subtitle">Queda abrupta após Março — sinal de alerta</div>
+        <canvas id="ug-guides-rate-chart" height="200"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-row single">
+      <div class="chart-card">
+        <div class="chart-title">🔴 Anomalia Crítica — Views Altas, Completions Próximas de Zero</div>
+        <div class="chart-subtitle">Os 14 dias com mais de 1.000 views e completion abaixo de 5%</div>
+        <table class="data-table">
+          <thead><tr><th>Data</th><th>Views</th><th>Completions</th><th>Taxa</th><th>Diagnóstico</th></tr></thead>
+          <tbody id="ug-guides-anomaly"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">✅ Dias com Alta Completion</div>
+        <div class="chart-subtitle">Apenas em Março/2026 os guias tiveram boa adesão</div>
+        <div style="font-size:12px;color:var(--text-muted);padding:8px 0;line-height:1.6;">
+          Em <strong style="color:var(--positive);">março de 2026</strong>, a taxa de completion chegou a <strong style="color:var(--positive);">96,95%</strong> com 3.377 views e 3.274 completions.<br><br>
+          Hipótese: neste período os guias eram mais curtos, mais diretos, ou foram ativados em contexto de onboarding real.<br><br>
+          A partir de abril, com a explosão de views (+176%), a completion desabou para <strong style="color:var(--negative);">3,1%</strong> — 
+          sugerindo que novos guias mais longos foram adicionados, ou que o gatilho de exibição foi ampliado para contextos inadequados.
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">❌ Problema Estrutural</div>
+        <div class="chart-subtitle">O que os números sugerem</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <div class="insight-item">
+            <div class="insight-icon">🔍</div>
+            <div class="insight-text">
+              <strong>Guias exibidos no momento errado</strong>
+              <span>Usuários em fluxo ativo de trabalho abandonam guias imediatamente.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">📏</div>
+            <div class="insight-text">
+              <strong>Guias muito longos</strong>
+              <span>Benchmark UserGuiding: guias com 3–5 steps têm 2× mais completion que guias com 8+ steps.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">🎯</div>
+            <div class="insight-text">
+              <strong>Ausência de segmentação</strong>
+              <span>Sem dados de qual guia tem qual taxa, não é possível saber qual otimizar primeiro.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SURVEYS ==================== -->
+  <section id="ug-surveys" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">assignment</span></div>
+      <div class="page-hero-text">
+        <h2>Surveys</h2>
+        <p>2 surveys ativos · 8.165 interações totais · Alta disparidade entre eles</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card positive">
+        <div class="kpi-label">Total Interações</div>
+        <div class="kpi-value positive">8.165</div>
+        <div class="kpi-sub">Jan–Jun 2026</div>
+      </div>
+      <div class="kpi-card positive">
+        <div class="kpi-label">"Funcionalidade Importante"</div>
+        <div class="kpi-value positive">8.037</div>
+        <div class="kpi-sub">98,4% do total</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">"Avalie o EB"</div>
+        <div class="kpi-value negative">127</div>
+        <div class="kpi-sub">1,6% do total — crítico</div>
+      </div>
+      <div class="kpi-card neutral">
+        <div class="kpi-label">Pico Diário</div>
+        <div class="kpi-value neutral">582</div>
+        <div class="kpi-sub">20 Mar 2026</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">📅 Interações por Mês</div>
+        <div class="chart-subtitle">Pico em Abril, tendência de queda leve após</div>
+        <canvas id="ug-surveys-monthly" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">⚖️ Disparidade Entre Surveys</div>
+        <div class="chart-subtitle">63× mais interações no survey de funcionalidade vs avaliação do produto</div>
+        <div class="donut-wrapper" style="margin-top:20px;">
+          <svg width="130" height="130" viewBox="0 0 130 130" id="ug-survey-donut">
+            <circle cx="65" cy="65" r="52" fill="none" stroke="var(--surface2)" stroke-width="18"/>
+          </svg>
+          <div class="donut-legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--positive)"></div>
+              <div>
+                <div class="legend-val">8.037</div>
+                <div class="legend-text" style="font-size:11px;">Funcionalidade Importante</div>
+              </div>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--negative)"></div>
+              <div>
+                <div class="legend-val">127</div>
+                <div class="legend-text" style="font-size:11px;">Avalie o EB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted);line-height:1.6;">
+          ⚠️ O survey <strong style="color:var(--negative);">"Avalie o EB"</strong> com apenas 127 interações em 6 meses 
+          é um canal desperdiçado de feedback de produto. A hipótese é que ele aparece em um momento de baixa 
+          disponibilidade cognitiva do usuário.
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-row single">
+      <div class="chart-card">
+        <div class="chart-title">🔍 Análise Comparativa dos Surveys</div>
+        <table class="data-table" style="margin-top:12px;">
+          <thead><tr><th>Survey</th><th>Status</th><th>Interações</th><th>% do Total</th><th>Diagnóstico</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="mono">Funcionalidade importante</td>
+              <td><span class="badge active">● Active</span></td>
+              <td class="mono">8.037</td>
+              <td class="mono" style="color:var(--positive)">98,4%</td>
+              <td style="color:var(--positive)">✅ Alta adesão — posição e timing adequados</td>
+            </tr>
+            <tr>
+              <td class="mono">Avalie o EB</td>
+              <td><span class="badge active">● Active</span></td>
+              <td class="mono">127</td>
+              <td class="mono" style="color:var(--negative)">1,6%</td>
+              <td style="color:var(--negative)">❌ Invisível — revisar gatilho e posicionamento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KNOWLEDGE BASE ==================== -->
+  <section id="ug-knowledge" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">menu_book</span></div>
+      <div class="page-hero-text">
+        <h2>Knowledge Base</h2>
+        <p>629 page views · 77 dias com zero acesso · Avg 3,5 views/dia</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card warning">
+        <div class="kpi-label">Total Page Views</div>
+        <div class="kpi-value warning">629</div>
+        <div class="kpi-sub">Jan–Jun 2026</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Média Diária</div>
+        <div class="kpi-value warning">3,53</div>
+        <div class="kpi-sub">views por dia</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Dias com 0 Views</div>
+        <div class="kpi-value negative">77</div>
+        <div class="kpi-sub">de 178 dias (43%)</div>
+      </div>
+      <div class="kpi-card neutral">
+        <div class="kpi-label">Pico Mensal</div>
+        <div class="kpi-value neutral">210</div>
+        <div class="kpi-sub">Abril 2026</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">📚 Views Mensais — Knowledge Base</div>
+        <div class="chart-subtitle">Pico em Abril, queda em seguida — sem crescimento sustentado</div>
+        <canvas id="ug-kb-monthly" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">🔍 Diagnóstico</div>
+        <div class="chart-subtitle">Por que a KB não está performando</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
+          <div class="insight-item">
+            <div class="insight-icon">🔎</div>
+            <div class="insight-text">
+              <strong>Sem busca contextual nos Guias</strong>
+              <span>Usuários que abandonam um guia não são direcionados para a KB.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">🔗</div>
+            <div class="insight-text">
+              <strong>Baixa descoberta orgânica</strong>
+              <span>A KB não aparece no fluxo natural do usuário — depende de link direto.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">📄</div>
+            <div class="insight-text">
+              <strong>Sem dados por artigo</strong>
+              <span>O UserGuiding não reporta quais artigos são mais acessados — impossível otimizar.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">📉</div>
+            <div class="insight-text">
+              <strong>Queda pós-Abril sem explicação</strong>
+              <span>De 210 views em Abril para 105 em Junho — algo mudou no acesso mas não há dados para rastrear.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT UPDATES ==================== -->
+  <section id="ug-updates" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">notifications</span></div>
+      <div class="page-hero-text">
+        <h2>Product Updates</h2>
+        <p>373 page views · 116 dias com zero acesso · Avg 2,1 views/dia</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card negative">
+        <div class="kpi-label">Total Page Views</div>
+        <div class="kpi-value negative">373</div>
+        <div class="kpi-sub">Jan–Jun 2026</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Média Diária</div>
+        <div class="kpi-value negative">2,10</div>
+        <div class="kpi-sub">views por dia</div>
+      </div>
+      <div class="kpi-card negative">
+        <div class="kpi-label">Dias com 0 Views</div>
+        <div class="kpi-value negative">116</div>
+        <div class="kpi-sub">de 178 dias (65%)</div>
+      </div>
+      <div class="kpi-card warning">
+        <div class="kpi-label">Pico Mensal</div>
+        <div class="kpi-value warning">149</div>
+        <div class="kpi-sub">Maio 2026</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">🔔 Views Mensais — Product Updates</div>
+        <div class="chart-subtitle">Começo tardio (Jan/Fev zero) e pico em Maio — depois queda</div>
+        <canvas id="ug-pu-monthly" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">⚠️ Diagnóstico Crítico</div>
+        <div class="chart-subtitle">Product Updates é o módulo com pior performance relativa</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
+          <div class="insight-item">
+            <div class="insight-icon">🚫</div>
+            <div class="insight-text">
+              <strong>65% dos dias têm 0 views</strong>
+              <span>Mais da metade do período, o módulo foi completamente ignorado pelos usuários.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon">📢</div>
+            <div class="insight-text">
+              <strong>Sem notificações push para updates</strong>
+              <span>Usuários não são alertados quando há novidades — o acesso depende de navegação ativa.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">📊</div>
+            <div class="insight-text">
+              <strong>Menor volume que a KB</strong>
+              <span>Product Updates tem 40% menos views que a Knowledge Base — paradoxo: updates deveriam ter mais urgência.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INSIGHTS ==================== -->
+  <section id="ug-insights" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">search_insights</span></div>
+      <div class="page-hero-text">
+        <h2>Insights Estratégicos</h2>
+        <p>Pontos críticos, atenção e oportunidades derivados da análise dos dados</p>
+      </div>
+    </div>
+
+    <!-- CRÍTICOS -->
+    <div style="margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:8px;height:24px;background:var(--negative);border-radius:4px;"></div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--negative);">Pontos Críticos — Ação Imediata</h3>
+      </div>
+      <div class="insights-grid">
+        <div class="insight-card critical">
+          <div class="insight-eyebrow">🔴 Crítico #1</div>
+          <div class="insight-item">
+            <div class="insight-icon">🚨</div>
+            <div class="insight-text">
+              <strong>Banner "Retirada do sininho" desperdiçando 13.683 impressões</strong>
+              <span>O banner mais exibido do sistema está ativo com CTR = 0%. Está treinando ativamente os usuários a ignorar banners — o que contamina a eficácia de todos os outros. Desative ou redesenhe imediatamente.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">📊</div>
+            <div class="insight-text">
+              <strong>Impacto estimado de reversão</strong>
+              <span>Se atingir 10% de CTR, seria +1.368 interações qualificadas — maior que qualquer outro banner ativo.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card critical">
+          <div class="insight-eyebrow">🔴 Crítico #2</div>
+          <div class="insight-item">
+            <div class="insight-icon">📉</div>
+            <div class="insight-text">
+              <strong>89% dos dias com completion rate de Guides = 0%</strong>
+              <span>72.601 visualizações geradas, mas 5.307 completions (4,98%). Benchmarks de mercado indicam 25–40% como saudável. Há um problema de configuração, timing ou length nos guias ativos.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">🔎</div>
+            <div class="insight-text">
+              <strong>Março foi a exceção (96,9%)</strong>
+              <span>Comparar a configuração dos guias de Março com os atuais para identificar o que mudou.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card critical">
+          <div class="insight-eyebrow">🔴 Crítico #3</div>
+          <div class="insight-item">
+            <div class="insight-icon">⚙️</div>
+            <div class="insight-text">
+              <strong>UserGuiding usado como sistema de alerta de incidentes RPA</strong>
+              <span>60% dos banners são alertas reativos de instabilidade de RPA. Isso não é uso estratégico da ferramenta — é gambiarra. Indica ausência de canal técnico dedicado a comunicação de incidentes.</span>
+            </div>
+          </div>
+          <div class="insight-item" style="border:none">
+            <div class="insight-icon">🏗️</div>
+            <div class="insight-text">
+              <strong>Risco de reputação do canal</strong>
+              <span>Banners de crise ensinam o usuário a associar qualquer banner a "algo quebrou" — prejudicando banners de conteúdo positivo.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATENÇÃO -->
+    <div style="margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:8px;height:24px;background:var(--warning);border-radius:4px;"></div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--warning);">Pontos de Atenção — Monitorar e Planejar</h3>
+      </div>
+      <div class="insights-grid">
+        <div class="insight-card attention">
+          <div class="insight-eyebrow">🟡 Atenção #1</div>
+          <div class="insight-item">
+            <div class="insight-icon">📚</div>
+            <div class="insight-text">
+              <strong>Knowledge Base e Product Updates: engajamento anêmico</strong>
+              <span>KB: 3,5 views/dia. Product Updates: 2,1 views/dia. 65% dos dias, Product Updates tem 0 acessos. São recursos ativos sendo ignorados — o problema é descoberta, não qualidade.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card attention">
+          <div class="insight-eyebrow">🟡 Atenção #2</div>
+          <div class="insight-item">
+            <div class="insight-icon">📋</div>
+            <div class="insight-text">
+              <strong>Survey "Avalie o EB" com 127 interações em 6 meses</strong>
+              <span>63× menos engajamento que o survey de funcionalidade. É o principal canal de feedback de produto do EB e está essencialmente desativado na prática. Revisar trigger, posição e timing.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card attention">
+          <div class="insight-eyebrow">🟡 Atenção #3</div>
+          <div class="insight-item">
+            <div class="insight-icon">📅</div>
+            <div class="insight-text">
+              <strong>Sistema sem atividade em Janeiro 2026</strong>
+              <span>Todos os módulos com zero atividade em Janeiro — início tardio ou problema de configuração na virada do ano. Dado perdido: o que aconteceu nesses dias é desconhecido.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPORTUNIDADES -->
+    <div style="margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:8px;height:24px;background:var(--positive);border-radius:4px;"></div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--positive);">Oportunidades — Alavancar</h3>
+      </div>
+      <div class="insights-grid">
+        <div class="insight-card opportunity">
+          <div class="insight-eyebrow">🟢 Oportunidade #1</div>
+          <div class="insight-item">
+            <div class="insight-icon">📢</div>
+            <div class="insight-text">
+              <strong>Banners de conteúdo educacional têm altíssima CTR</strong>
+              <span>"Manual e atualização de produto" atingiu 30,7% de CTR — o dobro do segundo colocado. Há apetite real por conteúdo de ajuda. Produzir mais banners educacionais (não de crise) pode duplicar o engajamento total.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card opportunity">
+          <div class="insight-eyebrow">🟢 Oportunidade #2</div>
+          <div class="insight-item">
+            <div class="insight-icon">📈</div>
+            <div class="insight-text">
+              <strong>Guides Views em forte aceleração (+144% em Junho)</strong>
+              <span>42.495 views só em Junho vs 17.417 em Maio. A base de usuários está engajando com guias. Se o problema de completion for resolvido, o potencial de impacto em Julho é massivo.</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight-card opportunity">
+          <div class="insight-eyebrow">🟢 Oportunidade #3</div>
+          <div class="insight-item">
+            <div class="insight-icon">🔗</div>
+            <div class="insight-text">
+              <strong>Interligar KB + Product Updates com Guias</strong>
+              <span>Guias que terminam (ou são abandonados) poderiam direcionar para artigos da KB ou updates relevantes — criando um loop de self-service que não existe hoje.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GAPS DE DADOS ==================== -->
+  <section id="ug-gaps" class="ug-section">
+    <div class="page-hero">
+      <div class="ug-hero-icon"><span class="material-symbols-rounded" style="font-size:28px">warning</span></div>
+      <div class="page-hero-text">
+        <h2>Gaps de Dados</h2>
+        <p>O que o UserGuiding deveria reportar mas atualmente não traz — e por que isso importa</p>
+      </div>
+    </div>
+
+    <div style="background:var(--warning-dim);border:1px solid var(--warning-border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;font-size:13px;color:var(--text);line-height:1.6;">
+      ⚠️ <strong>Diagnóstico:</strong> Os dados exportados do UserGuiding são extremamente agregados. 
+      Com eles é possível saber <em>quanto</em> aconteceu, mas não <em>onde</em>, <em>quem</em>, <em>por que</em> e <em>o que quebrou</em>.
+      Isso limita drasticamente a capacidade de tomar decisões baseadas em dados.
+    </div>
+
+    <div class="missing-grid">
+      <div class="missing-card">
+        <div class="chart-title" style="margin-bottom:16px;">🗺️ Guides — Dados Ausentes</div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Performance individual por guia</strong>
+            <span>Qual guia tem mais views? Qual tem a menor completion? Impossível saber com os dados atuais.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Ponto de saída (drop-off step)</strong>
+            <span>Em qual step do guia os usuários abandonam? Sem isso, é impossível otimizar.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Segmento do usuário</strong>
+            <span>Quem está completando os guias — perfil corretora, RH ou operacional? Sem segmentação, a otimização é cega.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Tempo médio por guia</strong>
+            <span>Um guia completado em 30 segundos vs 5 minutos tem implicações completamente diferentes.</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:none">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Taxa de re-visualização</strong>
+            <span>Usuários voltam ao mesmo guia? Isso indicaria falta de clareza ou conteúdo de referência.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="missing-card">
+        <div class="chart-title" style="margin-bottom:16px;">📢 Banners — Dados Ausentes</div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Breakdown por página/módulo</strong>
+            <span>Em qual tela do EB o banner foi exibido e clicado? CTR de 30% no módulo de reembolso é diferente de 30% no login.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Taxa de dismiss vs. clique</strong>
+            <span>O usuário fechou o banner ou clicou? Dismiss repetido é sinal de irritação, não de indiferença.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Conversão pós-clique</strong>
+            <span>O que o usuário fez depois de clicar no banner? O clique levou à ação desejada?</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:none">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Frequência de exibição por usuário único</strong>
+            <span>O mesmo usuário vê o mesmo banner quantas vezes? Fadiga de banner distorce os dados de CTR.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="missing-card">
+        <div class="chart-title" style="margin-bottom:16px;">📋 Surveys — Dados Ausentes</div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Respostas e distribuição</strong>
+            <span>O UserGuiding exporta apenas a contagem de interações, não as respostas. O conteúdo da voz do usuário está inacessível aqui.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Taxa de completude do survey</strong>
+            <span>Quantos iniciaram e não terminaram? Surveys longos têm alto drop-off interno.</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:none">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Segmento respondente</strong>
+            <span>Qual perfil de usuário responde ao "Avalie o EB"? Sem isso, o dado não gera personas acionáveis.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="missing-card">
+        <div class="chart-title" style="margin-bottom:16px;">📚 KB + Product Updates — Dados Ausentes</div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Views por artigo/item</strong>
+            <span>Qual artigo da KB é mais acessado? Qual update recebeu mais atenção? Sem isso, a curadoria de conteúdo é aleatória.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Tempo de leitura por artigo</strong>
+            <span>O usuário leu o artigo ou simplesmente abriu e fechou? Page view sem tempo de leitura é métrica vazia.</span>
+          </div>
+        </div>
+        <div class="missing-item">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Origem do acesso</strong>
+            <span>O usuário chegou à KB pelo menu, por um guia, por um banner? Sem o caminho, não há como otimizar a descoberta.</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:none">
+          <div class="missing-dot"></div>
+          <div class="missing-text">
+            <strong>Feedback por artigo (útil/não útil)</strong>
+            <span>O conteúdo respondeu à dúvida? Isso é básico em qualquer sistema de self-service e está ausente.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+      <div class="chart-title" style="margin-bottom:12px;">🔌 Gaps Sistêmicos — Além do UserGuiding</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px;">
+        <div class="missing-item" style="border:1px solid var(--negative-border);border-radius:var(--radius-sm);padding:12px;background:var(--negative-dim);">
+          <div class="missing-dot" style="background:var(--negative)"></div>
+          <div class="missing-text">
+            <strong>Sem correlação com GA4</strong>
+            <span>Não é possível cruzar eventos UserGuiding com comportamento pós-interação no EB. Os dados vivem em silos separados.</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:1px solid var(--negative-border);border-radius:var(--radius-sm);padding:12px;background:var(--negative-dim);">
+          <div class="missing-dot" style="background:var(--negative)"></div>
+          <div class="missing-text">
+            <strong>Sem identidade do usuário</strong>
+            <span>Os dados são anônimos. Impossível saber se o mesmo usuário usa guias E banners E surveys — ou se são públicos completamente diferentes.</span>
+          </div>
+        </div>
+        <div class="missing-item" style="border:1px solid var(--warning-border);border-radius:var(--radius-sm);padding:12px;background:var(--warning-dim);">
+          <div class="missing-dot" style="background:var(--warning)"></div>
+          <div class="missing-text">
+            <strong>Sem NPS ou CSAT estruturado</strong>
+            <span>O "Avalie o EB" é um proxy fraco. Um NPS periódico integrado daria dado acionável sobre satisfação por segmento.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    </div>
+  </div>
+</div>
 </div>
 <div class="modal-overlay" id="settingsOverlay" hidden>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -6246,6 +7353,315 @@ Implicação para a marca: ainda que QBem venda B2B, o app do beneficiário é o
       activateView(view, opt ? opt.textContent : view);
     });
   });
+})();
+
+/* ════ DADOS UG — Script isolado ════ */
+(function(){
+  var ugC = {
+    positive:     '#00BF5A',
+    negative:     '#D4302F',
+    warning:      '#C99030',
+    neutral:      '#1E9CA8',
+    blue:         '#174353',
+    accentBright: '#2A6B80',
+    surface:      '#FFFFFF',
+    surface2:     '#F7FDFC',
+    textMuted:    'rgba(85,114,125,0.85)',
+    grid:         'rgba(23,67,83,0.06)',
+  };
+
+  function ugColor(ctr) {
+    if (ctr >= 20) return ugC.positive;
+    if (ctr >= 10) return ugC.warning;
+    if (ctr > 0)   return ugC.neutral;
+    return ugC.negative;
+  }
+
+  function ugFmt(n) { return n.toLocaleString('pt-BR'); }
+
+  function ugResolveColor(c) {
+    if (!c || !c.startsWith('var(')) return c;
+    var name = c.replace(/^var\(--/, '').replace(/\)$/, '');
+    var map = {
+      positive: ugC.positive, negative: ugC.negative, warning: ugC.warning,
+      neutral: ugC.neutral, blue: ugC.blue, 'accent-bright': ugC.accentBright,
+    };
+    return map[name] || '#174353';
+  }
+
+  function ugNiceMax(raw) {
+    if (raw <= 0) return 1;
+    var exp = Math.pow(10, Math.floor(Math.log10(raw)));
+    var frac = raw / exp;
+    var nice = frac <= 1 ? 1 : frac <= 2 ? 2 : frac <= 5 ? 5 : 10;
+    return nice * exp;
+  }
+
+  var ugMonths = ['Fev','Mar','Abr','Mai','Jun'];
+  var ugData = {
+    banners: { seen: [14720,13144,25524,28398,27825], clicks: [2074,1589,2415,3534,4184], ctr: [14.1,12.1,9.5,12.4,15.0] },
+    guides: { views: [1,3377,9311,17417,42495], completions: [1,3274,291,132,1609], rate: [100,96.9,3.1,0.8,3.8] },
+    kb: { views: [61,99,210,154,105] },
+    pu: { views: [5,5,108,149,106] },
+    surveys: { interactions: [33,1419,2527,2208,1978] },
+    bannersList: [
+      ['Manual e atualização de produto','Inactive',11216,3448,30.7],
+      ['Aviso importante: RPA Amil bloqueado','Inactive',9465,2040,21.6],
+      ['RPA SAS mov parado','Active',9040,1837,20.3],
+      ['RPA Amil instável','Inactive',9732,1675,17.2],
+      ['RPA Amil parado','Inactive',6264,1185,18.9],
+      ['RPA HNDI faturamento em funcionamento','Active',5860,1184,20.2],
+      ['Homolog - RPA Amil operando normalmente','Inactive',5591,845,15.1],
+      ['RPA Amil operando normalmente','Inactive',5423,550,10.1],
+      ['RPA Amil operando normalmente-1','Active',4558,504,11.1],
+      ['Conversor de layout Hapvida parado','Active',5546,473,8.5],
+      ['Anúncio funcionalidade: 2FA','Inactive',6375,55,0.9],
+      ['Aviso importante: RPA Amil restabelecido','Inactive',6669,0,0.0],
+      ['EB de cara nova!','Inactive',9,0,0.0],
+      ['Novo código ANS Pasi','Inactive',10160,0,0.0],
+      ['Retirada do sininho','Active',13683,0,0.0],
+    ]
+  };
+
+  function ugDrawLine(canvasId, datasets, labels, opts) {
+    opts = opts || {};
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    var dpr = window.devicePixelRatio || 1;
+    var parentW = canvas.parentElement.offsetWidth;
+    var W = Math.max(parentW - 40, 280);
+    var H = parseInt(canvas.getAttribute('height')) || 180;
+    canvas.width  = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    var hasLegend = datasets.length > 1 && datasets[0].label;
+    var legendH = hasLegend ? 22 : 0;
+    var pad = { top:14, right:18, bottom:34 + legendH, left: opts.leftPad || 52 };
+    var w = W - pad.left - pad.right;
+    var h = H - pad.top  - pad.bottom;
+    datasets = datasets.map(function(ds){ return Object.assign({}, ds, { color: ugResolveColor(ds.color) }); });
+    var allVals = [].concat.apply([], datasets.map(function(d){ return d.values; }));
+    var maxV = ugNiceMax(Math.max.apply(null, allVals) * 1.05);
+    ctx.clearRect(0, 0, W, H);
+    var gridSteps = 4;
+    ctx.strokeStyle = ugC.grid; ctx.lineWidth = 1;
+    for (var i = 0; i <= gridSteps; i++) {
+      var y = pad.top + (h / gridSteps) * i;
+      ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + w, y); ctx.stroke();
+    }
+    ctx.fillStyle = ugC.textMuted;
+    ctx.font = '10px "Line Seed JP",sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (var j = 0; j <= gridSteps; j++) {
+      var val = maxV * (1 - j / gridSteps);
+      var yy = pad.top + (h / gridSteps) * j;
+      var lbl = val >= 10000 ? (val/1000).toFixed(0)+'k' : val >= 1000 ? (val/1000).toFixed(1)+'k' : val % 1 === 0 ? val.toFixed(0) : val.toFixed(1);
+      ctx.fillText(lbl, pad.left - 6, yy);
+    }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillStyle = ugC.textMuted;
+    labels.forEach(function(l, i) {
+      var x = pad.left + (labels.length > 1 ? (i / (labels.length - 1)) * w : w / 2);
+      ctx.fillText(l, x, pad.top + h + 7);
+    });
+    datasets.forEach(function(ds) {
+      var n = ds.values.length;
+      var pts = ds.values.map(function(v, i){ return { x: pad.left + (n > 1 ? (i/(n-1))*w : w/2), y: pad.top + h - (v/maxV)*h }; });
+      if (ds.fill) {
+        var grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + h);
+        grad.addColorStop(0, ds.fill + '44'); grad.addColorStop(1, ds.fill + '00');
+        ctx.beginPath(); ctx.moveTo(pts[0].x, pad.top + h);
+        pts.forEach(function(p){ ctx.lineTo(p.x, p.y); });
+        ctx.lineTo(pts[n-1].x, pad.top + h); ctx.closePath();
+        ctx.fillStyle = grad; ctx.fill();
+      }
+      ctx.beginPath(); ctx.strokeStyle = ds.color; ctx.lineWidth = 2.5;
+      ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      pts.forEach(function(p, i){ i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y); });
+      ctx.stroke();
+      pts.forEach(function(p){
+        ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = ds.color; ctx.fill();
+        ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 2; ctx.stroke();
+      });
+      if (datasets.length === 1 && n <= 6) {
+        ctx.fillStyle = ds.color; ctx.font = 'bold 10px "Line Seed JP",sans-serif';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+        ds.values.forEach(function(v, i){
+          var lbl2 = v >= 10000 ? (v/1000).toFixed(0)+'k' : v >= 1000 ? (v/1000).toFixed(1)+'k' : v.toString();
+          ctx.fillText(lbl2, pts[i].x, pts[i].y - 6);
+        });
+      }
+    });
+    if (hasLegend) {
+      var legendY = pad.top + h + 36;
+      var lx = pad.left;
+      ctx.font = '10px "Line Seed JP",sans-serif'; ctx.textBaseline = 'middle';
+      datasets.forEach(function(ds){
+        ctx.fillStyle = ds.color; ctx.fillRect(lx, legendY - 1, 12, 3);
+        ctx.fillStyle = ugC.textMuted; ctx.textAlign = 'left';
+        ctx.fillText(ds.label, lx + 16, legendY);
+        lx += 16 + ctx.measureText(ds.label).width + 18;
+      });
+    }
+  }
+
+  function ugDrawDonut(svgId, segments, total) {
+    var svg = document.getElementById(svgId);
+    if (!svg) return;
+    var cx = 65, cy = 65, r = 52, sw = 18;
+    var circ = 2 * Math.PI * r;
+    var offset = -0.25 * circ;
+    while (svg.children.length > 1) svg.removeChild(svg.lastChild);
+    segments.forEach(function(seg){
+      var frac = seg.value / total;
+      var dash = frac * circ;
+      var circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      circle.setAttribute('cx', cx); circle.setAttribute('cy', cy);
+      circle.setAttribute('r', r); circle.setAttribute('fill', 'none');
+      circle.setAttribute('stroke', seg.color); circle.setAttribute('stroke-width', sw);
+      circle.setAttribute('stroke-dasharray', dash + ' ' + (circ - dash));
+      circle.setAttribute('stroke-dashoffset', -offset);
+      circle.setAttribute('transform', 'rotate(-90 65 65)');
+      svg.appendChild(circle);
+      offset += dash;
+    });
+  }
+
+  function ugBuildOverview() {
+    var bars = document.getElementById('ug-overview-bars');
+    if (!bars) return;
+    var items = [
+      {label:'Banners Cliques',    val:13796,  max:100000, color:ugC.blue},
+      {label:'Guides Views',       val:72601,  max:100000, color:ugC.warning},
+      {label:'Guides Completions', val:5307,   max:100000, color:ugC.positive},
+      {label:'Surveys',            val:8165,   max:100000, color:ugC.neutral},
+      {label:'Knowledge Base',     val:629,    max:100000, color:ugC.accentBright},
+      {label:'Product Updates',    val:373,    max:100000, color:ugC.negative},
+    ];
+    bars.innerHTML = items.map(function(it){ return '<div class="bar-item"><div class="bar-header"><span class="bar-label">'+it.label+'</span><span class="bar-value">'+ugFmt(it.val)+'</span></div><div class="bar-track"><div class="bar-fill" style="width:'+(it.val/it.max*100).toFixed(1)+'%;background:'+it.color+'"></div></div></div>'; }).join('');
+    ugDrawLine('ug-overview-timeline', [
+      {values:ugData.banners.seen,         color:ugC.blue,     label:'Banners',  fill:'#174353'},
+      {values:ugData.guides.views,         color:ugC.warning,  label:'Guides',   fill:ugC.warning},
+      {values:ugData.surveys.interactions, color:ugC.neutral,  label:'Surveys',  fill:ugC.neutral},
+    ], ugMonths);
+    ugDrawDonut('ug-donut-overview', [
+      {value:13796, color:ugC.blue},
+      {value:72601, color:ugC.warning},
+      {value:8165,  color:ugC.neutral},
+      {value:629,   color:ugC.accentBright},
+      {value:373,   color:ugC.negative},
+    ], 95564);
+    var legend = document.getElementById('ug-donut-legend');
+    if (legend) legend.innerHTML = [
+      {label:'Banners',     val:'13.796', color:ugC.blue},
+      {label:'Guides',      val:'72.601', color:ugC.warning},
+      {label:'Surveys',     val:'8.165',  color:ugC.neutral},
+      {label:'KB + Updates',val:'1.002',  color:ugC.accentBright},
+    ].map(function(i){ return '<div class="legend-item"><div class="legend-dot" style="background:'+i.color+'"></div><div><div class="legend-val">'+i.val+'</div><div class="legend-text">'+i.label+'</div></div></div>'; }).join('');
+  }
+
+  function ugBuildBanners() {
+    var rank = document.getElementById('ug-banner-ranking');
+    if (!rank) return;
+    var maxCtr = 31;
+    rank.innerHTML = ugData.bannersList.map(function(b){
+      var name=b[0],status=b[1],seen=b[2],inter=b[3],ctr=b[4];
+      var isActive = status === 'Active';
+      var isProb = ctr === 0 && isActive;
+      var barColor = ugColor(ctr);
+      return '<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);"><div style="width:190px;font-size:11px;color:'+(isProb?ugC.negative:'var(--muted)')+';overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;" title="'+name+'">'+name+'</div><span class="badge '+(isActive?'active':'inactive')+'">'+(isActive?'● Active':'Inactive')+'</span><div style="flex:1;"><div style="display:flex;align-items:center;gap:6px;"><div style="flex:1;background:var(--surface-alt);height:7px;border-radius:4px;overflow:hidden;"><div style="height:100%;width:'+(ctr/maxCtr*100).toFixed(1)+'%;background:'+barColor+';border-radius:4px;"></div></div><span style="font-family:var(--mono);font-size:12px;font-weight:700;color:'+barColor+';width:40px;text-align:right;">'+ctr+'%</span></div></div><span style="font-family:var(--mono);font-size:11px;color:var(--text-dim);width:68px;text-align:right;">'+ugFmt(seen)+' views</span></div>';
+    }).join('');
+    var pos = document.getElementById('ug-banners-positive');
+    if (pos) pos.innerHTML = ugData.bannersList.filter(function(b){ return b[4]>=15; }).map(function(b){ return '<tr><td>'+b[0]+'</td><td class="mono">'+ugFmt(b[2])+'</td><td class="mono" style="color:'+ugC.positive+'">'+ugFmt(b[3])+'</td><td class="mono" style="color:'+ugC.positive+'">'+b[4]+'%</td></tr>'; }).join('');
+    var neg = document.getElementById('ug-banners-negative');
+    if (neg) neg.innerHTML = ugData.bannersList.filter(function(b){ return b[4]<2; }).map(function(b){ return '<tr><td>'+b[0]+'</td><td><span class="badge '+(b[1]==='Active'?'critical':'inactive')+'">'+(b[1]==='Active'?'⚠ ATIVO':'Inactive')+'</span></td><td class="mono">'+ugFmt(b[2])+'</td><td class="mono" style="color:'+ugC.negative+'">'+b[4]+'%</td></tr>'; }).join('');
+    ugDrawLine('ug-banner-seen-chart', [{values:ugData.banners.seen, color:ugC.blue,     fill:'#174353'}], ugMonths);
+    ugDrawLine('ug-banner-ctr-chart',  [{values:ugData.banners.ctr,  color:ugC.positive, fill:ugC.positive}], ugMonths, {leftPad:38});
+  }
+
+  function ugBuildGuides() {
+    ugDrawLine('ug-guides-monthly', [
+      {values:ugData.guides.views,       color:ugC.warning,  label:'Views',       fill:ugC.warning},
+      {values:ugData.guides.completions, color:ugC.positive, label:'Completions', fill:ugC.positive},
+    ], ugMonths);
+    ugDrawLine('ug-guides-rate-chart', [{values:ugData.guides.rate, color:ugC.neutral, fill:ugC.neutral}], ugMonths, {leftPad:38});
+    var anom = document.getElementById('ug-guides-anomaly');
+    if (anom) {
+      var rows = [
+        ['22/Jun','6.469','27','0%'],['23/Jun','5.730','16','0%'],['16/Jun','5.221','56','1%'],
+        ['19/Jun','5.079','15','0%'],['18/Jun','4.460','21','0%'],['17/Jun','4.463','30','1%'],
+        ['06/Mai','4.897','27','1%'],['05/Mai','4.474','39','1%'],['04/Mai','3.902','43','1%'],
+        ['07/Mai','2.929','13','0%'],['30/Abr','4.347','54','1%'],['29/Abr','4.782','74','2%'],
+        ['25/Jun','4.635','13','0%'],['24/Jun','4.020','17','0%'],
+      ];
+      anom.innerHTML = rows.map(function(r){ return '<tr><td class="mono">'+r[0]+'</td><td class="mono" style="color:'+ugC.warning+'">'+r[1]+'</td><td class="mono">'+r[2]+'</td><td><span class="badge critical">'+r[3]+'</span></td><td style="font-size:11px;color:'+ugC.negative+';">⚠ Abandono massivo</td></tr>'; }).join('');
+    }
+  }
+
+  function ugBuildSurveys() {
+    ugDrawLine('ug-surveys-monthly', [{values:ugData.surveys.interactions, color:ugC.neutral, fill:ugC.neutral}], ugMonths);
+    ugDrawDonut('ug-survey-donut', [
+      {value:8037, color:ugC.positive},
+      {value:127,  color:ugC.negative},
+    ], 8164);
+  }
+
+  function ugBuildKB() {
+    ugDrawLine('ug-kb-monthly', [{values:ugData.kb.views, color:ugC.accentBright, fill:ugC.accentBright}], ugMonths);
+  }
+
+  function ugBuildPU() {
+    ugDrawLine('ug-pu-monthly', [{values:ugData.pu.views, color:ugC.negative, fill:ugC.negative}], ugMonths);
+  }
+
+  function ugRebuild(sectionId) {
+    requestAnimationFrame(function(){
+      if (sectionId === 'ug-overview')  ugBuildOverview();
+      if (sectionId === 'ug-banners')   ugBuildBanners();
+      if (sectionId === 'ug-guides')    ugBuildGuides();
+      if (sectionId === 'ug-surveys')   ugBuildSurveys();
+      if (sectionId === 'ug-knowledge') ugBuildKB();
+      if (sectionId === 'ug-updates')   ugBuildPU();
+    });
+  }
+
+  window.ugNavigate = function(sectionId, btn) {
+    document.querySelectorAll('.ug-section').forEach(function(s){ s.classList.remove('ug-visible'); });
+    document.querySelectorAll('.ug-nav-btn').forEach(function(b){ b.classList.remove('ug-nav-active'); });
+    var section = document.getElementById(sectionId);
+    if (section) section.classList.add('ug-visible');
+    if (btn) btn.classList.add('ug-nav-active');
+    ugRebuild(sectionId);
+  };
+
+  function ugInitWhenVisible() {
+    var panel = document.querySelector('[data-view="dados-ug"]');
+    if (!panel) return;
+    var observer = new MutationObserver(function(){
+      if (!panel.hidden) {
+        ugBuildOverview();
+        ugBuildBanners();
+        ugBuildGuides();
+        ugBuildSurveys();
+        ugBuildKB();
+        ugBuildPU();
+      }
+    });
+    observer.observe(panel, { attributes: true, attributeFilter: ['hidden'] });
+    window.addEventListener('resize', function(){
+      if (!panel.hidden) {
+        ugBuildOverview(); ugBuildBanners(); ugBuildGuides();
+        ugBuildSurveys(); ugBuildKB(); ugBuildPU();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ugInitWhenVisible);
+  } else {
+    ugInitWhenVisible();
+  }
 })();
 </script>
 </body>
